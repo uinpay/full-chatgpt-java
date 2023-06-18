@@ -3,26 +3,26 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.unfbx</groupId>
-    <artifactId>chatgpt-java</artifactId>
+    <groupId>com.sytech</groupId>
+    <artifactId>full-chatgpt-java</artifactId>
     <version>1.0.14</version>
-    <name>chatgpt-java</name>
+    <name>full-chatgpt-java</name>
     <description>OpenAI Java SDK, OpenAI Api for Java. ChatGPT Java SDK .</description>
-    <url>https://www.unfbx.com</url>
+    <url>https://www.sytech.com</url>
     <scm>
-        <connection>scm:git:git://github.com/Grt1228/chatgpt-java.git</connection>
-        <url>https://github.com/Grt1228/chatgpt-java</url>
+        <connection>scm:git:git://github.com/uinpay/full-chatgpt-java.git</connection>
+        <url>https://github.com/uinpay/full-chatgpt-java.git</url>
     </scm>
     <organization>
-        <name>grt1228</name>
-        <url>https://www.unfbx.com</url>
+        <name>bob</name>
+        <url>https://www.sytech.com</url>
     </organization>
     <developers>
         <developer>
-            <name>unfbx</name>
-            <email>rtguo1228@qq.com</email>
-            <organization>unfbx</organization>
-            <organizationUrl>https://www.unfbx.com</organizationUrl>
+            <name>bob</name>
+            <email>sunvy.hu@gmail.com</email>
+            <organization>bob</organization>
+            <organizationUrl>https://www.sytech.com</organizationUrl>
             <roles>
                 <role>Developer</role>
             </roles>
@@ -126,7 +126,7 @@
             <url>https://s01.oss.sonatype.org/content/repositories/snapshots/</url>
         </snapshotRepository>
         <repository>
-            <id>unfbx</id> <!-- 此处id与setting.xml中的服务id保持一致 -->
+            <id>bob</id> <!-- 此处id与setting.xml中的服务id保持一致 -->
             <name>oss Staging Repository</name>
             <url>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</url>
         </repository>

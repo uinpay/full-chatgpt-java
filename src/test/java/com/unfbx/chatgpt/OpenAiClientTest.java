@@ -62,7 +62,8 @@ public class OpenAiClientTest {
     @Before
     public void before() {
         //可以为null
-        Proxy proxy = new Proxy(Proxy.Type.HTTP, new InetSocketAddress("127.0.0.1", 7890));
+//        Proxy proxy = new Proxy(Proxy.Type.HTTP, new InetSocketAddress("127.0.0.1", 7890));
+        Proxy proxy = null;
         HttpLoggingInterceptor httpLoggingInterceptor = new HttpLoggingInterceptor(new OpenAILogger());
         //！！！！千万别再生产或者测试环境打开BODY级别日志！！！！
         //！！！生产或者测试环境建议设置为这三种级别：NONE,BASIC,HEADERS,！！！
@@ -78,7 +79,7 @@ public class OpenAiClientTest {
                 .build();
         v2 = OpenAiClient.builder()
                 //支持多key传入，请求时候随机选择
-                .apiKey(Arrays.asList("sk-***********","sk-*********"))
+                .apiKey(Arrays.asList("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"))
                 //自定义key的获取策略：默认KeyRandomStrategy
                 //.keyStrategy(new KeyRandomStrategy())
                 .keyStrategy(new FirstKeyStrategy())
@@ -97,7 +98,7 @@ public class OpenAiClientTest {
 
     @Test
     public void billingUsage() {
-        LocalDate start = LocalDate.of(2023, 3, 7);
+        LocalDate start = LocalDate.of(2023, 6, 16);
         BillingUsage billingUsage = v2.billingUsage(start, LocalDate.now());
         log.info("总使用金额（美分）：{}", billingUsage.getTotalUsage());
         log.info("更多信息看BillingUsage类");
@@ -264,7 +265,7 @@ public class OpenAiClientTest {
     @Test
     public void completionsV2() {
         Completion q = Completion.builder()
-                .prompt("三体人是什么？")
+                .prompt("请用python写一个冒泡排序的算法，只给我代码片段即可，其他内容不要出现")
                 .n(2)
                 .bestOf(3)
                 .build();
@@ -275,9 +276,9 @@ public class OpenAiClientTest {
     @Test
     public void editText() {
         //文本修改
-//        Edit edit = Edit.builder().input("我爱你麻麻").instruction("帮我修改错别字").model(Edit.Model.TEXT_DAVINCI_EDIT_001.getName()).build();
+        Edit edit = Edit.builder().input("我爱你麻麻").instruction("帮我修改错别字").model(Edit.Model.TEXT_DAVINCI_EDIT_001.getName()).build();
         //代码修改 NB....
-        Edit edit = Edit.builder().input("System.out.pri(\"AAAAA\");").instruction("帮我修改这个java代码").model(Edit.Model.CODE_DAVINCI_EDIT_001.getName()).build();
+//        Edit edit = Edit.builder().input("System.out.pri(\"AAAAA\");").instruction("帮我修改这个java代码").model(Edit.Model.CODE_DAVINCI_EDIT_001.getName()).build();
         EditResponse editResponse = v2.edit(edit);
         System.out.println(editResponse);
     }
